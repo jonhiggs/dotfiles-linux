@@ -1,5 +1,0 @@
-for d in ${HOME}/etc/dotfiles/zsh/include.d/aliases.d/*; do
-  source $d
-done
-
-# vim: ft=sh:ts=2:sw=2

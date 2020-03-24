@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+online="#[bg=colour025]"
+offline="#[bg=colour088]"
+target="www.google.com"
+
+if $(dirname $0)/is_online; then
+  echo -n ${online}
+else
+  echo -n ${offline}
+fi
+echo -n '#[fg=colour015]'

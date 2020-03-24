@@ -1,3 +1,0 @@
-eval $(${HOME}/.local/bin2/ssh_agent)
-
-# vim: ft=sh

@@ -1,4 +1,0 @@
-export LANG=C
-export LC_CTYPE="en_US.UTF-8"
-
-# vim: ft=sh
