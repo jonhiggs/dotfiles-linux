@@ -1,12 +1,13 @@
-alias cdd='cd ../; ls'
+alias apt-get="sudo apt-get"
+alias rtor="rtorrent -b \$(ip address show dev tun0 | awk '/inet / { print \$2 }')"
+alias vpn="sudo openvpn --config ~/.config/torguard/melbourne.ovpn"
+
 alias cdr="cd \$(project_root ./)"
 alias grpe="grep"
 alias pwgen="pwgen --secure --symbols 14 1"
 
 alias find="echo 'use fd' >&2"
-alias bc="echo 'use insect' >&2"
 
-alias sd="make -C ${HOME}/Dropbox/docs/redbubble/standdown edit"
 alias cm="cmus_selector"
 alias pa="pass"
 
@@ -14,7 +15,9 @@ alias dict="cat ${HOME}/etc/vimfiles/data/site/spell/custom-dictionary.utf-8.add
 alias weather="redis-cli get weather_observation_data | jq"
 alias wttr="curl wttr.in/~Melbourne"
 
-alias t="${HOME}/.local/bin2/tig_selector"
+alias t="tig_selector"
+alias tig="tig status"
+alias g="git"
 
 alias uuid="ruby -e \"require 'securerandom'; puts SecureRandom.uuid\""
 alias week="date +%V"
@@ -22,7 +25,7 @@ alias week="date +%V"
 alias gho="ghopen"
 alias bko="bkopen"
 
-alias power="battery"
+alias lock="pass git push; task sync; xscreensaver-command -lock; systemctl suspend"
 alias lcok='lock'
 alias lokc='lock'
 

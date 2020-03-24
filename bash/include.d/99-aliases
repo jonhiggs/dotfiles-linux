@@ -1,4 +1,0 @@
-source ${HOME}/.local/src/dotfiles-linux/bash/include.d/aliases.d/common
-source ${HOME}/.local/src/dotfiles-linux/bash/include.d/aliases.d/linux
-
-# vim: ft=sh:ts=2:sw=2
