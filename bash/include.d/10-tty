@@ -1,0 +1,3 @@
+# prevent C-s from stopping the tty
+stty stop ''
+stty start ''
