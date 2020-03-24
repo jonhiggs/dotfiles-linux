@@ -1,6 +1,0 @@
-text/html; w3m -T text/html -cols 72 -dump -o display_image=false -o display_link_number=true %s | less
-image/gif; xv %s
-image/jpg; xv %s
-image/png; open %s
-application/pdf; open %s
-application/pgp-keys; pgp -f < %s ; copiousoutput

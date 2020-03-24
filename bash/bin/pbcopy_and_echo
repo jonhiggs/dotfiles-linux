@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-tmp=$(mktemp -tpbcopy)
-cat /dev/stdin | tee $tmp | pbcopy
-cat $tmp
-rm $tmp
