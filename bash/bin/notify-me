@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-notify-send --app-name="notify-me" --urgency="critical" $1 $2
