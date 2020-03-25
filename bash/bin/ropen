@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
+set -e
 [[ $# -eq 0 ]] && echo "No file provided" && exit 1
 
 REMOTE_USER="jonhiggs"
 REMOTE_IP="192.168.56.1"
 LOCAL_FILE="$1"
-REMOTE_FILE="/tmp/$(basename ${LOCAL_FILE})"
+REMOTE_FILE="/tmp/$(basename "${LOCAL_FILE}")"
 
-scp "${LOCAL_FILE}" "${REMOTE_USER}@${REMOTE_IP}:${REMOTE_FILE}" 2>/dev/null
-ssh ${REMOTE_USER}@${REMOTE_IP} open "${REMOTE_FILE}"
+[[ ! -f "${LOCAL_FILE}" ]] && echo "File '$1' not found" && exit 1
+
+scp "${LOCAL_FILE}" "${REMOTE_USER}@${REMOTE_IP}:\"${REMOTE_FILE}\"" &> /dev/null
+ssh ${REMOTE_USER}@${REMOTE_IP} -- open "\"${REMOTE_FILE}\"" 2> /dev/null
