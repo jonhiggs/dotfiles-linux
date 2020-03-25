@@ -1,8 +1,3 @@
-if which go &> /dev/null; then
-  export GOPATH=${HOME}/go
-  [[ -d ${GOPATH} ]] || mkdir ${GOPATH}
-  export PATH="${GOPATH}/bin:${PATH}"
-fi
+append_to_path "/usr/local/go/bin"
 
 # vim: ft=sh
-
