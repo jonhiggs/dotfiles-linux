@@ -6,10 +6,6 @@ function prepend_to_path() {
   [[ -d $1 ]] && export PATH="$1:$PATH"
 }
 
-function groot() {
-  cd $(driller --scm-root ./)
-}
-
 function dockerenv() {
   local status="$(docker-machine status ${DOCKER_MACHINE_NAME})"
   [[ "${status}" != "Running" ]] \
