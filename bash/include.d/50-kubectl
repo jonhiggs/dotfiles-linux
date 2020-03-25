@@ -5,6 +5,7 @@ done
 export KUBECONFIG
 
 alias k="/$(command -v kubectl) -n \${KUBE_NAMESPACE:-default}"
+source <(kubectl completion bash)
 complete -o default -F __start_kubectl k
 
 # vim: ft=sh
