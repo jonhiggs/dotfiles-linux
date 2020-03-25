@@ -12,9 +12,4 @@ REPO=$(
       '
 )
 
-url="https://buildkite.com/${REPO}/builds?branch=${BRANCH}"
-if command -v open; then
-  open "${url}"
-else
-  firefox "${url}"
-fi
+rrun open "https://buildkite.com/${REPO}/builds?branch=${BRANCH}"

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+[[ $# -eq 0 ]] && echo "No file provided" && exit 1
+
+REMOTE_USER="jonhiggs"
+REMOTE_IP="192.168.56.1"
+LOCAL_FILE="$1"
+REMOTE_FILE="/tmp/$(basename ${LOCAL_FILE})"
+
+scp "${LOCAL_FILE}" "${REMOTE_USER}@${REMOTE_IP}:${REMOTE_FILE}" 2>/dev/null
+ssh ${REMOTE_USER}@${REMOTE_IP} open "${REMOTE_FILE}"
