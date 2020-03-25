@@ -1,2 +1,0 @@
-application/pdf;      evince %s
-text/html;            links -dump %s ; copiousoutput
