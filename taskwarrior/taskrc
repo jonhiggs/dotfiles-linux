@@ -29,8 +29,8 @@ data.location=~/.task
 #include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/solarized-light-256.theme
 #include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/no-color.theme
 
-include ~/.local/src/dotfiles/taskwarrior/mine.theme
-include ~/.local/src/dotfiles/taskwarrior/server.inc
+include ~/.local/src/dotfiles-linux/taskwarrior/mine.theme
+include ~/.local/src/dotfiles-linux/taskwarrior/server.inc
 
 context.high=priority.not:L scheduled.not:someday -BLOCKED
 context.work=(project.not:home project.not:housework project.not:shed -env +UNBLOCKED) or +ACTIVE

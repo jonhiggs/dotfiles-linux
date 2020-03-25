@@ -29,4 +29,7 @@ alias lock="pass git push; task sync; xscreensaver-command -lock; systemctl susp
 alias lcok='lock'
 alias lokc='lock'
 
+alias ta="task"
+alias tare="task ready"
+
 # vim: ft=sh
