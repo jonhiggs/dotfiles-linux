@@ -7,6 +7,7 @@ alias grpe="grep"
 alias pwgen="pwgen --secure --symbols 14 1"
 
 alias find="echo 'use fd' >&2"
+alias fd="fdfind"
 
 alias cm="cmus_selector"
 alias pa="pass"
@@ -31,5 +32,7 @@ alias lokc='lock'
 
 alias ta="task"
 alias tare="task ready"
+
+alias sb="tmux save-buffer - | pbcopy"
 
 # vim: ft=sh
