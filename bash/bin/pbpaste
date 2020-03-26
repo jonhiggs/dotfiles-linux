@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+latest_buffer() {
+  tmux list-buffers | awk -F: '{ print $1; exit 0 }'
+}
+
+tmux save-buffer -b $(latest_buffer) -
+echo
