@@ -4,6 +4,10 @@ else
   echo "The bash_completion script isn't found."
 fi
 
+for f in ~/.local/src/dotfiles-linux/bash_completion/*; do
+  source $f
+done
+
 complete -C "$(which aws_completer)" aws
 
 # vim: ft=sh
