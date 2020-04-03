@@ -35,6 +35,7 @@ include ~/.local/src/dotfiles-linux/taskwarrior/server.inc
 context.high=priority.not:L scheduled.not:someday -BLOCKED
 context.work=(project.not:home project.not:housework project.not:shed +UNBLOCKED) or +ACTIVE
 urgency.blocking.coefficient=2
+urgency.due.coefficient=16
 urgency.user.tag.blocked.coefficient=-15.0
 urgency.user.tag.env.coefficient=-4.0
 urgency.user.tag.trello.coefficient=2.0
