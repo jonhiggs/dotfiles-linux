@@ -1,7 +1,3 @@
 #!/usr/bin/env bash
 [[ $# -eq 0 ]] && echo "No file provided" && exit 1
-
-REMOTE_USER="jonhiggs"
-REMOTE_IP="192.168.56.1"
-
-ssh ${REMOTE_USER}@${REMOTE_IP} "$@"
+ssh mac "$@"
