@@ -3,10 +3,44 @@ set -e
 [[ $# -eq 0 ]] && echo "No file provided" && exit 1
 
 HOST="mac"
-LOCAL_FILE="$1"
-REMOTE_FILE="/tmp/$(basename "${LOCAL_FILE}")"
+ARG="$(readlink -f "$1" || echo $1)"
+REMOTE_ARG="$(echo "$ARG" | sed -E 's#^/home/jon#/Users/jonhiggs#')"
 
-[[ ! -f "${LOCAL_FILE}" ]] && echo "File '$1' not found" && exit 1
+mode() {
+  if [[ -f "${ARG}" ]]; then
+    if remote_file_exists; then
+      echo "file_remote" && return 0
+    else
+      echo "file_copy" && return 0
+    fi
+  fi
 
-scp "${LOCAL_FILE}" "${HOST}:\"${REMOTE_FILE}\"" &> /dev/null
-ssh ${HOST} -- open "\"${REMOTE_FILE}\"" 2> /dev/null
+  [[ -d "${ARG}" ]]                       && echo "dir"   && return 0
+  [[ "${ARG}" =~ ^(https|http|ftp):// ]]  && echo "url"   && return 0
+  return 1
+}
+
+remote_file_exists() {
+  local lmd5=$(md5sum "${ARG}" | awk '{ print $1 }')
+  local rmd5=$(ssh "${HOST}" md5 \""${REMOTE_ARG}"\" | awk '{ print $NF }')
+  [[ "${lmd5}" == "${rmd5}" ]]
+  return $?
+}
+
+case $(mode) in
+  "file_copy")
+      REMOTE_FILE="/tmp/$(basename "${ARG}")"
+      scp "${ARG}" "${HOST}:\"${REMOTE_FILE}\"" &> /dev/null
+      ssh ${HOST} -- open "\"${REMOTE_FILE}\"" 2> /dev/null
+    ;;
+  "file_remote"|"dir")
+      ssh ${HOST} -- open "\"${REMOTE_ARG}\"" 2> /dev/null
+    ;;
+  "url")
+      ssh ${HOST} -- open "\"$1\"" 2> /dev/null
+    ;;
+  *)
+      echo "Invalid input"
+      exit 1
+    ;;
+esac
