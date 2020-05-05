@@ -1,3 +1,4 @@
 application/pdf;      ropen %s
 image/png;            ropen %s
+image/jpeg;           ropen %s
 text/html;            links -dump %s ; copiousoutput
