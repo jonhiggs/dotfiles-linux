@@ -27,6 +27,12 @@ remote_file_exists() {
   return $?
 }
 
+remove_mutt_sidebar() {
+  echo $1 \
+    | sed 's/.*│+//g' \
+    | tr -d '\n'
+}
+
 case $(mode) in
   "file_copy")
       REMOTE_FILE="/tmp/$(basename "${ARG}")"
@@ -37,7 +43,8 @@ case $(mode) in
       ssh ${HOST} -- open "\"${REMOTE_ARG}\"" 2> /dev/null
     ;;
   "url")
-      ssh ${HOST} -- open "\"$1\"" 2> /dev/null
+      u="$(remove_mutt_sidebar "$1")"
+      ssh ${HOST} -- open "\"$u\"" 2> /dev/null
     ;;
   *)
       echo "Invalid input"
