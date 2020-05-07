@@ -8,7 +8,7 @@ window_exists() {
 }
 
 create_window() {
-  tmux new-window -c ${HOME}/Music -t ${CMUS_WINDOW} -n cmus -- ssh mac
+  tmux new-window -c ${HOME}/Music -t ${CMUS_WINDOW} -n cmus
   tmux send-keys -t:${CMUS_WINDOW} "cmus; exit" Enter
 }
 
