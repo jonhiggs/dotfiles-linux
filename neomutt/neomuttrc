@@ -1,13 +1,20 @@
 set mbox_type=Maildir
 set spoolfile=+INBOX
 set mask="!^\\.[^.]"
-set record=+[Gmail].Sent\ Mail
+set record="+INBOX" # save sent to INBOX (fixes threading)
 set postponed=+Drafts
 set editor=~/.local/src/dotfiles-linux/neomutt/editor_wrapper
 set from="jon.higgs@redbubble.com"
 set date_format = "%m/%d"
 
 set pager_stop = yes
+
+# address book
+set alias_file=~/.config/neomutt/aliases
+set sort_alias= alias
+set reverse_alias=yes
+source $alias_file
+
 
 # sidebar
 set sidebar_visible=yes
@@ -26,7 +33,7 @@ virtual-mailboxes "  GitHub" "notmuch://?query=folder:GitHub"
 virtual-mailboxes "  Confluence" "notmuch://?query=folder:Confluence"
 virtual-mailboxes "  Trello" "notmuch://?query=folder:Trello"
 virtual-mailboxes "Drafts" "notmuch://?query=folder:Drafts"
-virtual-mailboxes "Sent" "notmuch://?query=folder:/[Gmail].*Sent.Mail/"
+virtual-mailboxes "Sent" "notmuch://?query=from:jon.higgs@redbubble.com"
 
 set sidebar_width   = 24
 color sidebar_new color221 color233
@@ -78,6 +85,10 @@ bind pager,index  R  group-reply
 bind index,pager  K sidebar-prev
 bind index,pager  J sidebar-next
 bind index,pager  O sidebar-open
+
+# Notmuch
+macro index F "<enter-command>unset wait_key<enter><shell-escape>read -p 'notmuch query: ' x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) | head -n 600 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a'\`\"<enter>" "show only messages matching a notmuch pattern"
+macro index a "<limit>all\n" "show all messages (undo limit)"
 
 ###############################################################################
 # Options can be seen at https://github.com/altercation/mutt-colors-solarized/blob/master/mutt-colors-solarized-dark-256.muttrc#
