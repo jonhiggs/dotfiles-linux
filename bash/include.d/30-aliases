@@ -26,7 +26,7 @@ alias week="date +%V"
 alias gho="ghopen"
 alias bko="bkopen"
 
-alias lock="pass git push; task sync; xscreensaver-command -lock; systemctl suspend"
+alias lock="pass git push; task sync; rrun pmset displaysleepnow"
 alias lcok='lock'
 alias lokc='lock'
 
