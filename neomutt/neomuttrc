@@ -15,7 +15,6 @@ set sort_alias= alias
 set reverse_alias=yes
 source $alias_file
 
-
 # sidebar
 set sidebar_visible=yes
 set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
@@ -27,7 +26,7 @@ set sidebar_sort_method = 'unsorted'
 set virtual_spoolfile = yes
 set nm_default_uri = "notmuch://${HOME}/Mail"
 
-virtual-mailboxes "Inbox" "notmuch://?query=folder:INBOX"
+virtual-mailboxes "Inbox" "notmuch://?query=folder:INBOX AND NOT to:de-discussion@redbubble.com"
 virtual-mailboxes "  DE-Discussion" "notmuch://?query=folder:DE-Discussion"
 virtual-mailboxes "  GitHub" "notmuch://?query=folder:GitHub"
 virtual-mailboxes "  Confluence" "notmuch://?query=folder:Confluence"
