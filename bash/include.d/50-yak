@@ -1,9 +1,3 @@
-y() {
-  role=$(redis-cli -s /tmp/redis.sock --raw get yak_role)
-  region=$(redis-cli -s /tmp/redis.sock --raw get yak_region)
-  echo "Setting AWS credentials to ${role} in ${region}."
-  eval $(yak ${role})
-  export AWS_DEFAULT_REGION="${region}"
-}
+alias ya="yak non-prod true && yak prod true"
 
 # vim: ft=sh
