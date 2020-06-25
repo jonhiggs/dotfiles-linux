@@ -118,6 +118,7 @@ color tree          color012        color0                 # arrow in threads
 ## messages
 color index         brightyellow    color0        "~U"         # unread messages
 color index         brightred       color234      "~F"         # flagged
+color index         color035        color234      "~T"         # tagged
 color index         color242        color234      "~D(!~p|~p)" # deleted
 color index         color208        color234      "~P"         # messages from me
 
