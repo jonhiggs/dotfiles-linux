@@ -25,6 +25,7 @@
 	amend = commit -v --amend
 	reword = commit -v --amend
 	fixup = !git reset --soft HEAD~ && git commit --amend --no-edit
+	pr = !gh pr create --fill
 
 #[url "git@github.com:"]
 #	insteadOf = https://github.com/
