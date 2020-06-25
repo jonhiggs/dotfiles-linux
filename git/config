@@ -19,7 +19,7 @@
 	p = pull
 	s = status
 	co = checkout
-	master-rebaser = !git fetch && git rebase origin/master
+	rbom = !git fetch && git rebase origin/master
 	branch-cleanlocal = "!for b in $(git branch | grep -v '^*'); do git branch -d $b; done"
 	rbi = !git rebase -i origin/master
 	amend = commit -v --amend
