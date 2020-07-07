@@ -71,8 +71,6 @@ bind index,pager \Cd noop             # delete
 
 bind index        gg first-entry
 bind index        G  last-entry
-bind index       \Cd half-down
-bind index       \Cu half-up
 bind index       \Cj next-thread
 bind index       \Ck previous-thread
 bind index        o  select-entry
@@ -81,13 +79,13 @@ bind pager        k  previous-line
 bind pager        j  next-line
 bind pager        gg top
 bind pager        G  bottom
-bind pager        d  half-down
-bind pager        u  half-up
-bind pager,index  R  group-reply
 
-bind index,pager  K sidebar-prev
-bind index,pager  J sidebar-next
-bind index,pager  O sidebar-open
+bind index,pager  J  sidebar-next
+bind index,pager  K  sidebar-prev
+bind index,pager  O  sidebar-open
+bind index,pager  R  group-reply
+bind index,pager  d  half-down
+bind index,pager  u  half-up
 
 # Notmuch
 macro index F "<enter-command>unset wait_key<enter><shell-escape>read -p 'notmuch query: ' x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) | head -n 600 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a'\`\"<enter>" "show only messages matching a notmuch pattern"
@@ -117,7 +115,7 @@ color tree          color012        color0                 # arrow in threads
 
 ## messages
 color index         brightyellow    color0        "~U"         # unread messages
-color index         color208        color234      "~P"         # messages from me
+color index         color208        color0        "~P"         # messages from me
 color index         brightred       color234      "~F"         # flagged
 color index         color035        color234      "~T"         # tagged
 color index         color242        color234      "~D(!~p|~p)" # deleted
