@@ -74,6 +74,8 @@ bind index        G  last-entry
 bind index       \Cj next-thread
 bind index       \Ck previous-thread
 bind index        o  select-entry
+bind index        x  delete-message
+bind index        X  delete-thread
 
 bind pager        k  previous-line
 bind pager        j  next-line
