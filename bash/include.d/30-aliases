@@ -20,6 +20,8 @@ alias t="tig_selector"
 alias tig="tig status"
 alias g="git"
 
+alias gl="glow -p -w 60 -s ${HOME}/.local/src/dotfiles-linux/glow/style.json"
+
 alias uuid="ruby -e \"require 'securerandom'; puts SecureRandom.uuid\""
 alias week="date +%V"
 
