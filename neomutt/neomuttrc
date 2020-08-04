@@ -66,9 +66,9 @@ set wrap=80
 # noops
 bind index,pager  o  noop
 bind index,pager  g  noop
-bind index        !  noop
 bind index,pager \Cd noop             # delete
 
+bind index        !  flag-message
 bind index        gg first-entry
 bind index        G  last-entry
 bind index       \Cj next-thread
