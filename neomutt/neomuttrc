@@ -26,6 +26,7 @@ set sidebar_new_mail_only = no
 set mail_check_stats = yes
 set sidebar_sort_method = 'unsorted'
 
+startup-hook 'exec notmuch new'
 set virtual_spoolfile = yes
 set nm_default_uri = "notmuch://${HOME}/Mail"
 
