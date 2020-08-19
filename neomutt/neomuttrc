@@ -142,10 +142,10 @@ color quoted3       color160        color234
 color quoted4       color166        color234
 
 ## sidebar
-color sidebar_indicator brightyellow  color234        # Dark blue background
-color sidebar_highlight brightwhite   color234        # Grey background
-color sidebar_spoolfile default       default         # Yellow
-color sidebar_new       color214      default         # Green
-color sidebar_ordinary  default       default         # Default colors
-color sidebar_flagged   red           default         # Red
-color sidebar_divider   color234      color234        # Dark grey
+color sidebar_indicator brightyellow  color234
+color sidebar_highlight brightwhite   color234
+color sidebar_spoolfile default       default
+color sidebar_new       color214      default
+color sidebar_ordinary  default       default
+color sidebar_flagged   red           default
+color sidebar_divider   color234      color234
