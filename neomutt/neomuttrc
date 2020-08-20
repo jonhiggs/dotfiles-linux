@@ -30,7 +30,7 @@ startup-hook 'exec notmuch new'
 set virtual_spoolfile = yes
 set nm_default_uri = "notmuch://${HOME}/Mail"
 
-virtual-mailboxes "Inbox" "notmuch://?query=folder:INBOX AND NOT to:de-discussion@redbubble.com"
+virtual-mailboxes "Inbox" "notmuch://?query=folder:INBOX AND NOT to:de-discussion@redbubble.com AND NOT folder:my_archive"
 virtual-mailboxes "  DE-Discussion" "notmuch://?query=folder:DE-Discussion"
 virtual-mailboxes "  GitHub" "notmuch://?query=folder:GitHub"
 virtual-mailboxes "  Confluence" "notmuch://?query=folder:Confluence"
