@@ -5,7 +5,11 @@ set record="+INBOX" # save sent to INBOX (fixes threading)
 set postponed="+[Gmail].Drafts"
 set editor=~/.local/src/dotfiles-linux/neomutt/editor_wrapper
 set from="jon.higgs@redbubble.com"
-set date_format = "%m/%d"
+set date_format = "!%d/%m %H:%M"
+set index_format = "%4C %Z %D  %-25.25L (%?l?%4l&%4c?) %s"
+
+# display time in pager using local timezone. https://unix.stackexchange.com/questions/18651/how-do-i-configure-mutt-to-display-the-date-header-in-my-local-time-zone-in-the
+set display_filter="exec sed -r \"s/^Date:\\s*(([F-Wa-u]{3},\\s*)?[[:digit:]]{1,2}\\s+[A-Sa-y]{3}\\s+[[:digit:]]{4}\\s+[[:digit:]]{1,2}:[[:digit:]]{1,2}(:[[:digit:]]{1,2})?\\s+[+-][[:digit:]]{4})/date +'Date: %a, %d %b %Y %H:%M:%S %Z' -d '\\1'/e\""
 
 set pager_stop = yes
 
