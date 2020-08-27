@@ -38,7 +38,7 @@ virtual-mailboxes "Inbox" "notmuch://?query=folder:INBOX AND NOT to:de-discussio
 virtual-mailboxes "  DE-Discussion" "notmuch://?query=folder:DE-Discussion"
 virtual-mailboxes "  GitHub" "notmuch://?query=folder:GitHub"
 virtual-mailboxes "Archive" "notmuch://?query=folder:my_archive"
-virtual-mailboxes "Drafts" "notmuch://?query=folder:[Gmail].Drafts"
+virtual-mailboxes "Drafts" "notmuch://?query=folder:\[Gmail\].Drafts"
 virtual-mailboxes "Sent" "notmuch://?query=from:jon.higgs@redbubble.com"
 
 set sidebar_width   = 24
