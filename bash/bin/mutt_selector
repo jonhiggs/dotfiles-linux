@@ -15,5 +15,9 @@ select_window() {
   tmux select-window -t:${WINDOW}
 }
 
-window_exists || create_window
+restart_fetchmail() {
+  systemctl --user restart fetchmail-{gmail,fastmail}
+}
+
+window_exists || ( create_window && restart_fetchmail)
 select_window
