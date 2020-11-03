@@ -31,3 +31,13 @@
 #	insteadOf = https://github.com/
 [pull]
 	rebase = true
+
+[sendemail]
+from = Jon Higgs <jhiggs@eml.cc>
+smtpuser =
+smtpserver = "/usr/bin/msmtp"
+smtpserveroption = "-a"
+smtpserveroption = "fastmail"
+smtpencryption = tls
+chainreplyto = false
+confirm = auto
