@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 CMUS_WINDOW=8
 
+fix_alsa() {
+  sudo alsactl kill quit
+  sudo modprobe -r snd_hda_intel
+  sudo modprobe snd_hda_intel
+  sudo /etc/init.d/alsa-utils restart
+}
+
 window_exists() {
   tmux list-windows \
     | grep -q ^${CMUS_WINDOW}
@@ -8,6 +15,7 @@ window_exists() {
 }
 
 create_window() {
+  fix_alsa
   tmux new-window -c ${HOME}/Music -t ${CMUS_WINDOW} -n cmus
   tmux send-keys -t:${CMUS_WINDOW} "cmus; exit" Enter
 }
