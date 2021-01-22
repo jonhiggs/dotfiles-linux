@@ -7,14 +7,8 @@
 	excludesfile = ~/.config/git/ignore_global
 [commit]
 	template = ~/.config/git/commit_template
-[diff]
-	tool = opendiff
-[merge]
-	tool = opendiff
 [push]
 	default = current
-[difftool "opendiff"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 [alias]
 	p = pull
 	s = status
@@ -41,3 +35,11 @@ smtpserveroption = "fastmail"
 smtpencryption = tls
 chainreplyto = false
 confirm = auto
+[merge]
+	tool = diffconflicts
+[mergetool]
+  prompt = true
+	keepBackup = false
+[mergetool "diffconflicts"]
+	cmd = nvim -c DiffConflicts \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
+	trustExitCode = true
