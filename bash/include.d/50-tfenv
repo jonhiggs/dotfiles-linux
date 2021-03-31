@@ -1,0 +1,4 @@
+[[ -d ${HOME}/.tfenv/bin ]] \
+  && append_to_path ${HOME}/.tfenv/bin
+
+# vim: ft=sh
