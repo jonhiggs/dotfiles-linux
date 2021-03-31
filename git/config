@@ -19,6 +19,7 @@
 	reword = commit -v --amend
 	fixup = !git reset --soft HEAD~ && git commit --amend --no-edit
 	pr = !gh pr create --fill
+	dpr = !gh pr create --draft --fill
   delete-merged = "!git branch -d $(git branch --merged | grep -v -e master -e '*')"
 
 #[url "git@github.com:"]
