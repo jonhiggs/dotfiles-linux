@@ -4,7 +4,46 @@ for c in ${HOME}/.kube/rb-k8s-auth-pkg/*.yml; do
 done
 export KUBECONFIG
 
-alias k="/$(command -v kubectl) -n \${KUBE_NAMESPACE:-default}"
+kubecontext() {
+  $(command -v kubectl) config use-context $1
+}
+
+kubenamespace() {
+  local kubecmd=$(command -v kubectl)
+  local context=$(${kubecmd} config get-contexts | awk '($1~"*") {print $2 }')
+  ${kubecmd} config set-context ${context} --namespace=$1
+}
+
+__kubecontext() {
+  options=$(\find ~/.kube/rb-k8s-auth-pkg/ -name $2\*.yml | xargs -I{} basename {} .yml)
+  local IFS=$'\n'
+  COMPREPLY=($(compgen -W "${options}" -- ${word}))
+  if [ -n "$COMPREPLY" ]; then
+      COMPREPLY=($(printf "%q\n" "${COMPREPLY[@]}"))
+  fi
+  return 0
+}
+
+__kubenamespace() {
+  local kubecmd=$(command -v kubectl)
+  options=$(${kubecmd} get namespaces | awk '(NR!=1) { print $1 }' | grep ^$2)
+  local IFS=$'\n'
+  COMPREPLY=($(compgen -W "${options}" -- ${word}))
+  if [ -n "$COMPREPLY" ]; then
+      COMPREPLY=($(printf "%q\n" "${COMPREPLY[@]}"))
+  fi
+  return 0
+}
+
+alias k="/$(command -v kubectl)"
+alias kn=kubenamespace
+alias kc=kubecontext
+
+complete -F __kubecontext kubecontext
+complete -F __kubenamespace kubenamespace
+complete -F __kubecontext kc
+complete -F __kubenamespace kn
+
 source <(kubectl completion bash)
 complete -o default -F __start_kubectl k
 
