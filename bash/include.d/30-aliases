@@ -6,7 +6,6 @@ alias cdr="cd \$(project_root ./)"
 alias grpe="grep"
 alias pwgen="pwgen --secure --symbols 14 1"
 
-alias find="echo 'use fd' >&2"
 alias fd="fdfind"
 
 alias cm="cmus_selector"
