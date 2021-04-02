@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 CMUS_WINDOW=8
 
+
+
 fix_alsa() {
   sudo alsactl kill quit
-  sudo modprobe -r snd_intel8x0
-  sudo modprobe snd_intel8x0
+  sudo modprobe -r snd_hda_intel
+  sudo modprobe snd_hda_intel
   sudo /etc/init.d/alsa-utils restart
 }
 
