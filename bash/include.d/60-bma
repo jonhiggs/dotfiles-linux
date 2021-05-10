@@ -1,3 +1,8 @@
-append_to_path $HOME/.bash-my-aws/bin
-source ~/.bash-my-aws/aliases
-source ~/.bash-my-aws/bash_completion.sh
+[[ -d ${HOME}/.bash-my-aws/bin ]] \
+  && append_to_path $HOME/.bash-my-aws/bin
+
+[[ -f ${HOME}/.bash-my-aws/aliases ]] \
+  && source ${HOME}/.bash-my-aws/aliases
+
+[[ -f ${HOME}/.bash-my-aws/bash_completion.sh ]] \
+  && source ${HOME}/.bash-my-aws/bash_completion.sh

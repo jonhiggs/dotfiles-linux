@@ -20,7 +20,8 @@
 	fixup = !git reset --soft HEAD~ && git commit --amend --no-edit
 	pr = !gh pr create --fill
 	dpr = !gh pr create --draft --fill
-  delete-merged = "!git branch -d $(git branch --merged | grep -v -e master -e '*')"
+	pro = !rrun open $(gh pr view | awk '/^url:/ { print $2 }')
+	delete-merged = "!git branch -d $(git branch --merged | grep -v -e master -e '*')"
 
 #[url "git@github.com:"]
 #	insteadOf = https://github.com/
@@ -39,7 +40,7 @@ confirm = auto
 [merge]
 	tool = diffconflicts
 [mergetool]
-  prompt = true
+	prompt = true
 	keepBackup = false
 [mergetool "diffconflicts"]
 	cmd = nvim -c DiffConflicts \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"

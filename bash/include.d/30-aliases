@@ -8,14 +8,14 @@ alias pwgen="pwgen --secure --symbols 14 1"
 
 alias fd="fdfind"
 
-alias cm="cmus_selector"
+alias cm="${HOME}/src/scripts/tmux/cmus"
 alias pa="pass"
 
 alias dict="cat ${HOME}/etc/vimfiles/data/site/spell/custom-dictionary.utf-8.add ${HOME}/etc/vimfiles/data/site/spell/en_au-words.txt | sort -f"
 alias weather="redis-cli get weather_observation_data | jq"
 alias wttr="curl wttr.in/~Melbourne"
 
-alias t="tig_selector"
+alias t="${HOME}/src/scripts/tmux/tig"
 alias tig="tig status"
 alias g="git"
 
@@ -24,8 +24,8 @@ alias gl="glow -p -w 60 -s ${HOME}/.local/src/dotfiles-linux/glow/style.json"
 alias uuid="ruby -e \"require 'securerandom'; puts SecureRandom.uuid\""
 alias week="date +%V"
 
-alias gho="ghopen"
-alias bko="bkopen"
+alias gho="${HOME}/src/scripts/browser-hooks/github"
+alias bko="${HOME}/src/scripts/browser-hooks/buildkite"
 
 alias lock="pass git push; task sync; rrun pmset displaysleepnow"
 alias lcok='lock'

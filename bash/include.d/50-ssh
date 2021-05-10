@@ -1,6 +1,14 @@
 #!/usr/bin/env bash
+[[ -z "${SSH_AUTH_SOCK}" ]] && eval $(ssh-agent)
 
 if [[ "${SSH_AUTH_SOCK}" != "/tmp/ssh-auth-sock" ]]; then
   ln -sf ${SSH_AUTH_SOCK} "/tmp/ssh-auth-sock"
   export SSH_AUTH_SOCK="/tmp/ssh-auth-sock"
 fi
+
+# I'm not sure where this is coming from
+rm -f ${HOME}/ssh-auth-sock
+
+for k in $(find ${HOME}/.ssh -name \*.pub | xargs -I{} basename {} .pub); do
+  [[ -f ${HOME}/.ssh/$k ]] && ssh-add ${HOME}/.ssh/$k 2> /dev/null
+done

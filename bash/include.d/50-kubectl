@@ -4,14 +4,29 @@ for c in ${HOME}/.kube/rb-k8s-auth-pkg/*.yml; do
 done
 export KUBECONFIG
 
+_KUBECMD=$(command -v kubectl)
+_kube_current_context() {
+  ${_KUBECMD} config view -o json | jq -r '."current-context"'
+}
+
+_kube_current_namespace() {
+  ${_KUBECMD} config view -o json \
+    | jq -r ".contexts[] | select(.name==\"$(_kube_current_context)\") | .context.namespace" \
+    | sed 's/^null$/default/'
+}
+
+_kube_show_context() {
+  echo -e "$(_kube_current_context)\t$(_kube_current_namespace)"
+}
+
 kubecontext() {
-  $(command -v kubectl) config use-context $1
+  [[ $# -eq 1 ]] && ${_KUBECMD} config use-context $1 >&2
+  _kube_show_context
 }
 
 kubenamespace() {
-  local kubecmd=$(command -v kubectl)
-  local context=$(${kubecmd} config get-contexts | awk '($1~"*") {print $2 }')
-  ${kubecmd} config set-context ${context} --namespace=$1
+  [[ $# -eq 1 ]] && ${_KUBECMD} config set-context --current --namespace=$1 >&2
+  _kube_show_context
 }
 
 __kubecontext() {
@@ -36,8 +51,8 @@ __kubenamespace() {
 }
 
 alias k="/$(command -v kubectl)"
-alias kn=kubenamespace
-alias kc=kubecontext
+alias kn="kubenamespace 2>/dev/null"
+alias kc="kubecontext 2>/dev/null"
 
 complete -F __kubecontext kubecontext
 complete -F __kubenamespace kubenamespace
