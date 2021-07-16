@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+### Fix long links copied from emails.
+# removes the plus from the beginning of lines and join them back up.
+(pbpaste | sed 's/^\+//' | tr -d '\n'; echo) | pbcopy
+
