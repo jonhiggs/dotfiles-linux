@@ -1,4 +1,4 @@
-append_to_path "/usr/local/go/bin"
+append_to_path "/opt/go/bin"
 GOPATH=${HOME}/go
 
 # vim: ft=sh
