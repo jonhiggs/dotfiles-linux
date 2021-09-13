@@ -22,6 +22,7 @@
 	dpr = !gh pr create --draft --fill
 	pro = !rrun open $(gh pr view | awk '/^url:/ { print $2 }')
 	delete-merged = "!git branch -d $(git branch --merged | grep -v -e master -e '*')"
+	delete-local-branches = "!git branch | grep -v -E -e '(master|main)' -e \"^\\*\" | xargs -I{} git branch -D {}"
 
 #[url "git@github.com:"]
 #	insteadOf = https://github.com/
