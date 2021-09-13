@@ -1,0 +1,2 @@
+source ${HOME}/.local/src/asdf/asdf.sh
+source ${HOME}/.local/src/asdf/completions/asdf.bash
