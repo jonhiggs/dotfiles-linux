@@ -36,4 +36,7 @@ alias tare="task ready"
 
 alias sb="tmux save-buffer - | pbcopy"
 
+alias mutt-rb="neomutt -F ~/.config/neomutt/neomuttrc.redbubble"
+alias mutt="neomutt -F ~/.config/neomutt/neomuttrc.fastmail"
+alias nm="/usr/local/bin/notmuch --config=${HOME}/.config/notmuch/notmuch-config"
 # vim: ft=sh
