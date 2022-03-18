@@ -1,0 +1,3 @@
+export NOTMUCH_CONFIG="${HOME}/.config/notmuch/notmuch-config"
+alias m="${HOME}/src/scripts/tmux/mutt"
+# vim: ft=sh
