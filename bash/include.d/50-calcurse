@@ -1,1 +1,2 @@
-alias c="${HOME}/bin/calcurse_selector"
+alias c="${HOME}/src/scripts/tmux/calcurse"
+export CALCURSE_MERGEOOL="nvim -c DiffConflicts"
