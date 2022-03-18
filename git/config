@@ -13,16 +13,14 @@
 	p = pull
 	s = status
 	co = checkout
-	rbom = !git fetch && git rebase origin/master
-	rbi = !git rebase -i origin/master
+	rbom = !git fetch && git rebase origin/HEAD
+	rbi = !git rebase -i origin/HEAD
 	amend = commit -v --amend
 	reword = commit -v --amend
 	fixup = !git reset --soft HEAD~ && git commit --amend --no-edit
 	pr = !gh pr create --fill
 	dpr = !gh pr create --draft --fill
 	pro = !rrun open $(gh pr view | awk '/^url:/ { print $2 }')
-	delete-merged = "!git branch -d $(git branch --merged | grep -v -e master -e '*')"
-	delete-local-branches = "!git branch | grep -v -E -e '(master|main)' -e \"^\\*\" | xargs -I{} git branch -D {}"
 
 #[url "git@github.com:"]
 #	insteadOf = https://github.com/
