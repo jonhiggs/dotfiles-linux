@@ -27,7 +27,7 @@ alias week="date +%V"
 alias gho="${HOME}/src/scripts/browser-hooks/github"
 alias bko="${HOME}/src/scripts/browser-hooks/buildkite"
 
-alias lock="pass git push; task sync; rrun pmset displaysleepnow"
+alias lock="rrun pmset displaysleepnow"
 alias lcok='lock'
 alias lokc='lock'
 
@@ -35,8 +35,3 @@ alias ta="task"
 alias tare="task ready"
 
 alias sb="tmux save-buffer - | pbcopy"
-
-alias mutt-rb="neomutt -F ~/.config/neomutt/neomuttrc.redbubble"
-alias mutt="neomutt -F ~/.config/neomutt/neomuttrc.fastmail"
-alias nm="/usr/local/bin/notmuch --config=${HOME}/.config/notmuch/notmuch-config"
-# vim: ft=sh
