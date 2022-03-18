@@ -1,6 +1,6 @@
 data.location=~/.task
 include ~/.local/src/dotfiles-linux/taskwarrior/mine.theme
-include ~/.local/src/dotfiles-linux/taskwarrior/server.inc
+#include ~/.local/src/dotfiles-linux/taskwarrior/server.inc
 
 context.high=priority.not:L scheduled.not:someday -BLOCKED
 context.work=(project.not:home project.not:housework project.not:shed +UNBLOCKED) or +ACTIVE
@@ -23,3 +23,4 @@ urgency.uda.priority.L.coefficient=-7.0
 urgency.uda.priority.M.coefficient=0.0
 context.housework=project:housework
 context=work
+news.version=2.6.0
