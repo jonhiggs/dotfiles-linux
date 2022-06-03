@@ -15,6 +15,9 @@
 	co = checkout
 	rbom = !git fetch && git rebase origin/HEAD
 	rbi = !git rebase -i origin/HEAD
+	rbc = rebase --continue
+	mt = mergetool
+	branch-delete-local = "!git branch -l | awk '$1==\"*\" {next}; ($1==\"main\" || $1==\"master\") {next}; {print $1}' | xargs -I{} git branch -D {}"
 	amend = commit -v --amend
 	reword = commit -v --amend
 	fixup = !git reset --soft HEAD~ && git commit --amend --no-edit
