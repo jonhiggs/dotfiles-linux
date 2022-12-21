@@ -36,10 +36,22 @@
     "block_prefix": "\n"
   },
   "h3": {
-    "prefix": "### "
+    "prefix": "",
+    "suffix": "",
+    "color": "15",
+    "bold": true,
+    "underline": false,
+    "margin": 0,
+    "block_prefix": "\n"
   },
   "h4": {
-    "prefix": "#### "
+    "prefix": "####",
+    "suffix": "",
+    "color": "8",
+    "bold": true,
+    "underline": false,
+    "margin": 0,
+    "block_prefix": "\n"
   },
   "h5": {
     "prefix": "##### "

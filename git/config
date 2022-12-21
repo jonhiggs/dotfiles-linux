@@ -23,10 +23,11 @@
 	fixup = !git reset --soft HEAD~ && git commit --amend --no-edit
 	pr = !gh pr create --fill
 	dpr = !gh pr create --draft --fill
+	ghclone = !gh repo clone
 	pro = !rrun open $(gh pr view | awk '/^url:/ { print $2 }')
 
-#[url "git@github.com:"]
-#	insteadOf = https://github.com/
+[url "git@github.com:"]
+	insteadOf = https://github.com/
 [pull]
 	rebase = true
 

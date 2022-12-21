@@ -30,7 +30,7 @@ kubenamespace() {
 }
 
 __kubecontext() {
-  options=$(\find ~/.kube/rb-k8s-auth-pkg/ -name $2\*.yml | xargs -I{} basename {} .yml)
+  options=$(echo -e "staging\nproduction")
   local IFS=$'\n'
   COMPREPLY=($(compgen -W "${options}" -- ${word}))
   if [ -n "$COMPREPLY" ]; then

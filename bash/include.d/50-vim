@@ -17,7 +17,8 @@ function vl() {
   /opt/nvim/share/nvim/runtime/macros/less.sh $@
 }
 
-alias v="nvr --remote-tab"
+alias v="nvim_remote"
+alias vs="nvim_server"
 alias ivm="${EDITOR}"
 alias vi="${EDITOR}"
 alias vim="${EDITOR}"

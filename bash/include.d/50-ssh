@@ -4,7 +4,10 @@ if [[ ${SSH_AUTH_SOCK} != "/tmp/ssh-auth-sock" ]] && [[ ! -d ${SSH_AUTH_SOCK} ]]
   unset SSH_AUTH_SOCK
 fi
 
-[[ -z "${SSH_AUTH_SOCK}" ]] && eval $(ssh-agent)
+if [[ -z "${SSH_AUTH_SOCK}" ]]; then
+  pkill ssh-agent
+  eval $(ssh-agent)
+fi
 
 if [[ "${SSH_AUTH_SOCK}" != "/tmp/ssh-auth-sock" ]]; then
   ln -sf ${SSH_AUTH_SOCK} "/tmp/ssh-auth-sock"
