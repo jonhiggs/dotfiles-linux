@@ -1,12 +1,8 @@
 alias apt-get="sudo apt-get"
-alias rtor="rtorrent -b \$(ip address show dev tun0 | awk '/inet / { print \$2 }')"
-alias vpn="sudo openvpn --config ~/.config/torguard/melbourne.ovpn"
 
 alias cdr="cd \$(project_root ./)"
 alias grpe="grep"
 alias pwgen="pwgen --secure --symbols 14 1"
-
-alias fd="fdfind"
 
 alias cm="${HOME}/src/scripts/tmux/cmus"
 alias pa="pass"
@@ -35,3 +31,5 @@ alias ta="task"
 alias tare="task ready"
 
 alias sb="tmux save-buffer - | pbcopy"
+
+alias remind="${HOME}/.local/src/dotfiles-linux/bash/bin/remind_me"
