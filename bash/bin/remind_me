@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
-timestamp=$(date --date="$1" +%s)
-shift
-
-curl -d "%@" \
-    -H "Delay: ${timestamp}" \
-    -H "Priority: high" \
-    -d "$@" \
-    ntfy.sh/jhiggs-notifications
+if [[ $1 == "now" ]]; then
+  shift
+  curl -d "$*" \
+      -H "Priority: high" \
+      ntfy.sh/jhiggs-notifications
+else
+  timestamp=$(date --date="$1" +%s)
+  shift
+  curl -d "$*" \
+      -H "Delay: ${timestamp}" \
+      -H "Priority: high" \
+      ntfy.sh/jhiggs-notifications
+fi
