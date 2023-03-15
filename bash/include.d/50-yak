@@ -1,3 +1,0 @@
-alias ya="yak non-prod true && yak prod true"
-
-# vim: ft=sh

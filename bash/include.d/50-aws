@@ -1,1 +1,8 @@
 export AWS_DEFAULT_REGION=us-east-1
+
+alias awss="AWS_PROFILE=staging"
+alias awsp="AWS_PROFILE=production"
+
+alias sso="${HOME}/src/scripts/browser-hooks/sso"
+
+# vim: ft=sh

@@ -19,6 +19,7 @@ function vl() {
 
 alias v="nvim_remote"
 alias vs="nvim_server"
+alias vt="nvim --server ~/.cache/nvim/server.pipe --remote-tab"
 alias ivm="${EDITOR}"
 alias vi="${EDITOR}"
 alias vim="${EDITOR}"

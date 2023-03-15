@@ -33,3 +33,5 @@ alias tare="task ready"
 alias sb="tmux save-buffer - | pbcopy"
 
 alias remind="${HOME}/.local/src/dotfiles-linux/bash/bin/remind_me"
+
+# vim: ft=sh
