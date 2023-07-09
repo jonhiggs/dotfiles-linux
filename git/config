@@ -9,6 +9,8 @@
 	template = ~/.config/git/commit_template
 [push]
 	default = current
+[fetch]
+    prune = true
 [alias]
 	p = pull
 	s = status
@@ -18,6 +20,7 @@
 	rbc = rebase --continue
 	mt = mergetool
 	branch-delete-local = "!git branch -l | awk '$1==\"*\" {next}; ($1==\"main\" || $1==\"master\") {next}; {print $1}' | xargs -I{} git branch -D {}"
+    branch-delete-remote = "!git branch -r | grep -v -e 'origin/master' -e 'origin/main' | xargs -I{} git branch -d -r {}"
 	amend = commit -v --amend
 	reword = commit -v --amend
 	fixup = !git reset --soft HEAD~ && git commit --amend --no-edit
@@ -28,6 +31,7 @@
 
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+
 [pull]
 	rebase = true
 
