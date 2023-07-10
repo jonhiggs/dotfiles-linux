@@ -16,7 +16,7 @@
 	s = status
 	co = checkout
 	rbom = !git fetch && git rebase origin/HEAD
-	rbi = !git rebase -i origin/HEAD
+	rbi = !git rebase -i origin/master
 	rbc = rebase --continue
 	mt = mergetool
 	branch-delete-local = "!git branch -l | awk '$1==\"*\" {next}; ($1==\"main\" || $1==\"master\") {next}; {print $1}' | xargs -I{} git branch -D {}"
