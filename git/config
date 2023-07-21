@@ -1,16 +1,22 @@
 [user]
 	name = Jon Higgs
 	email = jhiggs@eml.cc
+
 [help]
 	autocorrect = 1
+
 [core]
 	excludesfile = ~/.config/git/ignore_global
+
 [commit]
 	template = ~/.config/git/commit_template
+
 [push]
 	default = current
+
 [fetch]
     prune = true
+
 [alias]
 	p = pull
 	s = status
@@ -19,8 +25,6 @@
 	rbi = !git rebase -i origin/master
 	rbc = rebase --continue
 	mt = mergetool
-	branch-delete-local = "!git branch -l | awk '$1==\"*\" {next}; ($1==\"main\" || $1==\"master\") {next}; {print $1}' | xargs -I{} git branch -D {}"
-    branch-delete-remote = "!git branch -r | grep -v -e 'origin/master' -e 'origin/main' | xargs -I{} git branch -d -r {}"
 	amend = commit -v --amend
 	reword = commit -v --amend
 	fixup = !git reset --soft HEAD~ && git commit --amend --no-edit
@@ -28,6 +32,7 @@
 	dpr = !gh pr create --draft --fill
 	ghclone = !gh repo clone
 	pro = !rrun open $(gh pr view | awk '/^url:/ { print $2 }')
+    branch-clean = "!f() { git branch -d $1; git push origin --delete $1; }; f"
 
 [url "git@github.com:"]
 	insteadOf = https://github.com/
@@ -52,3 +57,5 @@ confirm = auto
 [mergetool "diffconflicts"]
 	cmd = nvim -c DiffConflicts \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
 	trustExitCode = true
+
+# vim: ft=toml
